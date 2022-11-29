@@ -22,7 +22,35 @@ const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp></SignUp>
-            }
+            },
+            {
+                path: '/products',
+                element: <SignUp></SignUp>
+            },
+            {
+                path: '/myorders',
+                element: <SignUp></SignUp>
+            },
+            {
+                path: '/myproducts',
+                element: <SignUp></SignUp>
+            },
+            {
+                path: '/addproducts',
+                element: <SignUp></SignUp>
+            },
+            {
+                path: '/allseller',
+                element: <SignUp></SignUp>
+            },
+            {
+                path: '/allbuyer',
+                element: <SignUp></SignUp>
+            },
+            {
+                path: '/blog',
+                element: <SignUp></SignUp>
+            },
         ]
     },
     
