@@ -4,6 +4,7 @@ import Home from "../../Pages/Home/Home/Home"
 import SignUp from "../../Pages/SignUp/SignUp";
 import Login from "../../Pages/LogIn/Login";
 import AllProducts from "../../Pages/AllProducts/AllProducts";
+import CategoryProducts from "../../Pages/AllProducts/CategoryProducts";
 
 
 
@@ -53,6 +54,11 @@ const router = createBrowserRouter([
                 path: '/blog',
                 element: <SignUp></SignUp>
             },
+            // {
+            //     path: '/category/:name',
+            //     element: <CategoryProducts></CategoryProducts>,
+            //     loader : ({params}) => fetch(`http://localhost:5000/category/${params.name}`)
+            // }
         ]
     },
     

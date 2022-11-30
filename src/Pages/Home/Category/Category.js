@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import iphone from '../../../Assets/iphone.jpg'
 
 
@@ -22,7 +23,7 @@ const Category = () => {
                         <div className="card-body ">
                             <h2 className="card-title">{category.category}</h2>
                             <div className="card-actions justify-end">
-                                <button className="btn btn-primary">View ALL</button>
+                                <Link to={`/category/${category.category}`}><button className="btn btn-primary">View ALL</button></Link>
                             </div>
                         </div>
                     </div>)

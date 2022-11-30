@@ -1,18 +1,20 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import useAdmin from '../../components/Hook/useAdmin';
 import { AuthContext } from '../../Context/AuthProvider';
 
 
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
+    const [isAdmin] = useAdmin(user?.email);
 
     const handleLogOut = () => {
         logOut()
             .then(() => {
                 toast.success('User Logout Successfully')
-             })
+            })
             .catch(err => console.log(err))
     }
 
@@ -22,13 +24,16 @@ const Navbar = () => {
         <li><Link to="/myorders">My Orders</Link></li>
         <li><Link to="/myproducts">My Products</Link></li>
         <li><Link to="/addproducts">Add Products</Link></li>
-        <li><Link to="/allseller">All Seller</Link></li>
-        <li><Link to="/allbuyer">All Buyer</Link></li>
         <li><Link to="/blog">Blog</Link></li>
+        {
+            isAdmin && <>
+                <li><Link to="/allseller">All Seller</Link></li>
+                <li><Link to="/allbuyer">All Buyer</Link></li>
+            </>
+        }
 
         {user?.uid ?
             <>
-                <li><Link to="/dashboard">Dashboard</Link></li>
                 <li><button onClick={handleLogOut}>Sign Out</button></li>
             </>
             :
