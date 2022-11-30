@@ -3,6 +3,7 @@ import Main from "../../Pages/Layout/Main"
 import Home from "../../Pages/Home/Home/Home"
 import SignUp from "../../Pages/SignUp/SignUp";
 import Login from "../../Pages/LogIn/Login";
+import AllProducts from "../../Pages/AllProducts/AllProducts";
 
 
 
@@ -25,7 +26,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/products',
-                element: <SignUp></SignUp>
+                loader: () => fetch('http://localhost:5000/products'),
+                element: <AllProducts></AllProducts>
             },
             {
                 path: '/myorders',
