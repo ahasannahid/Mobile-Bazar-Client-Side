@@ -1,9 +1,22 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Product from '../../Shared/Products/Product';
 
 const AllProducts = () => {
-    const products = useLoaderData();
+    // const products = useLoaderData();
+    const {data:products = [], refetch, isLoading } = useQuery({
+        queryKey: ['products'],
+        queryFn: async () => {
+            const res =await fetch(`http://localhost:5000/products`)
+            const data = await res.json();
+            return data;
+        }
+    });
+
+    if(isLoading){
+        return <p>Loading....</p>;
+    }
     return (
         <div>
             <h1 className='text-4xl font-bold text-center my-10'>All Mobile from Mobile Bazar</h1>
@@ -12,6 +25,8 @@ const AllProducts = () => {
                     products.map(product => <Product
                     key={product._id}
                     product={product}
+                    refetch={refetch}
+                    isLoading={isLoading}
                     >
                     </Product>)
                 }
