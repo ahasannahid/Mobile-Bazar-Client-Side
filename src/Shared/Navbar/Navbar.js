@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import useAdmin from '../../components/Hook/useAdmin';
+import useSeller from '../../components/Hook/useSeller';
 import { AuthContext } from '../../Context/AuthProvider';
 
 
@@ -9,6 +10,7 @@ const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
     const [isAdmin] = useAdmin(user?.email);
+    const [isSeller] = useSeller(user?.email);
 
     const handleLogOut = () => {
         logOut()
@@ -22,9 +24,15 @@ const Navbar = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/products">Products</Link></li>
         <li><Link to="/myorders">My Orders</Link></li>
-        <li><Link to="/myproducts">My Products</Link></li>
-        <li><Link to="/addproducts">Add Products</Link></li>
         <li><Link to="/blog">Blog</Link></li>
+
+        {
+            isSeller && <>
+                <li><Link to="/myproducts">My Products</Link></li>
+                <li><Link to="/addproducts">Add Products</Link></li>
+            </>
+        }
+
         {
             isAdmin && <>
                 <li><Link to="/allseller">All Seller</Link></li>
