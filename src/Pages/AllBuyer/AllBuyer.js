@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 
-const AllSeller = () => {
+const AllBuyer = () => {
 
-    const {data:sellers = [], refetch, isLoading } = useQuery({
+    const {data:Buyers = [], refetch, isLoading } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
-            const res =await fetch(`http://localhost:5000/role/Seller`)
+            const res =await fetch(`http://localhost:5000/role/Buyer`)
             const data = await res.json();
             return data;
         }
@@ -26,12 +26,12 @@ const AllSeller = () => {
                     </thead>
                     <tbody>
                         {
-                            sellers && 
-                            sellers?.map((seller, i) => <tr className="hover" key={seller._id}>
+                            Buyers && 
+                            Buyers?.map((Buyer, i) => <tr className="hover" key={Buyer._id}>
                             <th>{i+1}</th>
-                            <td>{seller?.name}</td>
-                            <td>{seller?.email}</td>
-                            <td>{seller?.phone}</td>
+                            <td>{Buyer?.name}</td>
+                            <td>{Buyer?.email}</td>
+                            <td>{Buyer?.phone}</td>
                             
                         </tr>)
                         }
@@ -42,4 +42,5 @@ const AllSeller = () => {
     );
 };
 
-export default AllSeller;
+
+export default AllBuyer;
