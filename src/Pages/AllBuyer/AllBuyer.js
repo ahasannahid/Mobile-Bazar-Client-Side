@@ -15,8 +15,8 @@ const AllBuyer = () => {
     });
     // console.log(seller);
 
-    const handleDeleteBuyer = buyer => {
-        fetch(`http://localhost:5000/users/${buyer._id}`, {
+    const handleDeleteBuyer = id => {
+        fetch(`http://localhost:5000/users/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
@@ -52,7 +52,7 @@ const AllBuyer = () => {
                             <th>{i+1}</th>
                             <td>{Buyer?.name}</td>
                             <td>{Buyer?.email}</td>
-                            <td><button onClick={() => handleDeleteBuyer(Buyer._id)} className='btn-sm btn-primary'>Delete Seller</button></td>
+                            <td><button onClick={() => handleDeleteBuyer(Buyer?._id)} className='btn-sm btn-primary'>Delete Buyer</button></td>
                             
                         </tr>)
                         }
