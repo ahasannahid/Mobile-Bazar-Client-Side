@@ -7,47 +7,37 @@ const Blog = () => {
             <h1 className="text-5xl text-center font-bold">Answer These Question</h1>
             <div className='my-10'>
                 <h1 className="text-3xl text-center bg-slate-200 font-bold">
-                    What is JWT, and how does it work?
+                    What are the different ways to manage a state in a React application?
                 </h1>
                 <p>
-                    JWT, or JSON Web Token, is an open standard used to share information between two parties securely — a client and a server. In most cases, it’s an encoded JSON containing a set of claims and a signature. It’s usually used in the context of other authentication mechanisms like OAuth, OpenID to share user-related information. It’s also a popular way to authenticate/authorize users in a microservice architecture.
+                    We have to set initial state value inside constructor function and set click event handler of the element upon which click, results in changing state. Then pass the function to the click handler and change the state of the component inside the function using setState.If we need to increase the component responsibility we only need to update the code in the same component and not in three different places.
+                </p>
+            </div>
+            <div className='my-10'>
+                <h1 className="text-3xl text-center bg-slate-200 font-bold">
+                    How does prototypical inheritance work?
+                </h1>
+                <p>
+                    Prototyping is an experimental process where design teams implement ideas into tangible forms from paper to digital. Teams build prototypes of varying degrees of fidelity to capture design concepts and test on users. With prototypes, you can refine and validate your designs so your brand can release the right products
+                </p>
+            </div>
+            <div className='my-10'>
+                <h1 className="text-3xl text-center bg-slate-200 font-bold">
+                    What is a unit test? Why should we write unit tests?
+                </h1>
+                <p>
+                    A  unit test is a way of testing a unit - the smallest piece of code that can be logically isolated in a system. In most programming languages, that is a function, a subroutine, a method or property. The isolated part of the definition is important.For Test-Driven Development (TDD), you write unit tests before writing any implementation. This makes your implementation details in your code shorter and easier to understand. In this instance, the best time to write unit tests is immediately. For others, most developers write unit tests after the code's been written.
 
-                    When it comes to API authentication and server-to-server authorization, JSON web token (JWT) is particularly a useful technology. In terms of Single Sign-On (SSO), it means that a service provider can receive trustworthy information from the authentication server.
+                </p>
+            </div>
+            <div className='my-10'>
+                <h1 className="text-3xl text-center bg-slate-200 font-bold">
+                    React vs. Angular vs. Vue?
+                </h1>
+                <p>
+                    React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”. React has a few different kinds of components, but we'll start with React.Component subclasses: class ShoppingList extends React.
 
-                    By sharing a secret key with the Identity Provider, the Service Provider can hash a part of a token it receives and compare it to the signature of the token. Now, if that result matches the signature, the SP knows that the information provided has come from the other entity possessing the key.
-                </p>
-            </div>
-            <div className='my-10'>
-                <h1 className="text-3xl text-center bg-slate-200 font-bold">
-                    Difference between SQL and NoSQL
-                </h1>
-                <p>
-                    SQL or the Structured Query Language is the most common and popular programming language for the relational database management system. It is a language designed to extract, store, insert, delete, update and manage data for structured data and strategic analysis. Perform queries on the database
-                    Database Retrieval
-                    Set permissions on tables, views
-                    Can insert records into the database
-                    Update records in a database
-                    Delete records from a database
-                    Create new databases, or new tables in a database
-                    Create stored procedures & views in a database
-                    NoSQL database provides a mechanism for storage and retrieval of data that is modelled other than tabular form. It was introduced by Carl Stroz in the year 1998 called a Non-relational database. Now, it stands for Not only SQL. It is not limited to storing data in tables, instead, enables the big data to be stored in the structured, unstructured, semi-structured or polymorphic form.
-                </p>
-            </div>
-            <div className='my-10'>
-                <h1 className="text-3xl text-center bg-slate-200 font-bold">
-                    What is the difference between javascript and NodeJS?
-                </h1>
-                <p>
-                    JavaScript is a simple programming language that can be used with any browser that has the JavaScript Engine installed. Node. js, on the other hand, is an interpreter or execution environment for the JavaScript programming language. To summarize, Node. js is a cross-platform JavaScript runtime environment for servers and applications. It is built on a single-threaded, non-blocking event loop, the Google Chrome V8 JavaScript engine, and a low-level I/O API.
-                </p>
-            </div>
-            <div className='my-10'>
-                <h1 className="text-3xl text-center bg-slate-200 font-bold">
-                    How does NodeJS handle multiple requests at the same time?
-                </h1>
-                <p>
-                    How NodeJS handle multiple client requests? NodeJS receives multiple client requests and places them into EventQueue. NodeJS is built with the concept of event-driven architecture. NodeJS has its own EventLoop which is an infinite loop that receives requests and processes them.
-                    As is, node. js can process upwards of 1000 requests per second and speed limited only to the speed of your network card. Note that it's 1000 requests per second not clients connected simultaneously. It can handle the 10000 simultaneous clients without issue.
+                    AngularJS is a JavaScript framework. It can be added to an HTML page with a script tag. AngularJS extends HTML attributes with Directives, and binds data to HTML with Expressions.
                 </p>
             </div>
         </div>
