@@ -11,6 +11,7 @@ const BookingModal = ({ refetch, setAddProduct, addProduct, isLoading}) => {
     }
    
     const { name:product_name } = addProduct;
+    console.log(product_name);
     
     const handleBooking = event => {
         event.preventDefault();
@@ -41,7 +42,7 @@ const BookingModal = ({ refetch, setAddProduct, addProduct, isLoading}) => {
         .then(data => {
             console.log(data);
             if(data.acknowledged){
-                setAddProduct(null);
+                setAddProduct('');
                 toast.success('Booking Confirm');
                 refetch();
             }
@@ -49,17 +50,20 @@ const BookingModal = ({ refetch, setAddProduct, addProduct, isLoading}) => {
                 toast.error(data.message);
             }
         })
-
-
         // setTreatment(null);
+    }
+
+    const handlecloseModal = () => {
+        setAddProduct('');
     }
     return (
         <>
             <input type="checkbox" id="booking-modal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box relative">
-                    <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    {/* <h3 className="text-lg font-bold">{product_name}</h3> */}
+                    <label onClick={handlecloseModal} htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+
+                    <h3 className="text-lg font-bold">{addProduct?.name}</h3>
 
                     <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-10'>
 

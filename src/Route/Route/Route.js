@@ -54,11 +54,11 @@ const router = createBrowserRouter([
                 path: '/blog',
                 element: <SignUp></SignUp>
             },
-            // {
-            //     path: '/category/:name',
-            //     element: <CategoryProducts></CategoryProducts>,
-            //     loader : ({params}) => fetch(`http://localhost:5000/category/${params.name}`)
-            // }
+            {
+                path: '/category/:name',
+                element: <CategoryProducts></CategoryProducts>,
+                loader : ({params}) => fetch(`http://localhost:5000/category/${params.name}`)
+            }
         ]
     },
     
