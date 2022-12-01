@@ -22,6 +22,8 @@ const AllBuyer = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Phone</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,6 +34,7 @@ const AllBuyer = () => {
                             <td>{Buyer?.name}</td>
                             <td>{Buyer?.email}</td>
                             <td>{Buyer?.phone}</td>
+                            <td><button className='btn-sm btn-primary'>Delete Seller</button></td>
                             
                         </tr>)
                         }

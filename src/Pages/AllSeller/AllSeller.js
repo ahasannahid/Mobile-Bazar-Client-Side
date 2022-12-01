@@ -22,6 +22,8 @@ const AllSeller = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Phone</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,6 +34,7 @@ const AllSeller = () => {
                             <td>{seller?.name}</td>
                             <td>{seller?.email}</td>
                             <td>{seller?.phone}</td>
+                            <td><button className='btn-sm btn-primary'>Delete Seller</button></td>
                             
                         </tr>)
                         }

@@ -1,9 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const MyOrders = () => {
     const {user} = useContext(AuthContext);
+
+    const [payment, setPayment] = useState(false)
+
 
     const url = `http://localhost:5000/bookings?email=${user?.email}`;
 
@@ -29,6 +32,7 @@ const MyOrders = () => {
                             <th>Product Name</th>
                             <th>Phone</th>
                             <th>Email</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,6 +44,7 @@ const MyOrders = () => {
                             <td>{booking?.product}</td>
                             <td>{booking?.phone}</td>
                             <td>{booking?.email}</td>
+                            <td><button onClick={() => setPayment(!payment)} className='btn-sm btn-primary'>{payment? 'Paid' : 'Payment'}</button></td>
                         </tr>)
                         }
                     </tbody>
