@@ -1,13 +1,15 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
+import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, providerLogin } = useContext(AuthContext);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [logInError, setLogInError] = useState('');
     const [loginUseEmail, setLoginUserEmail] = useState('');
@@ -15,6 +17,18 @@ const Login = () => {
     const navigate = useNavigate();
 
     const from = location.state?.from?.pathname || '/';
+
+    const googleProvider = new GoogleAuthProvider();
+    const handleGoogleSIgnIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                // console.log(user);
+                toast.success('User Login SUccessfully')
+                navigate(from, { replace: true });
+            })
+            .catch(error => console.error(error))
+    }
 
     const handleLogin = data => {
         console.log(data);
@@ -25,7 +39,7 @@ const Login = () => {
                 console.log(user);
                 setLoginUserEmail(data.email);
                 toast.success('User Login SUccessfully')
-                navigate(from, {replace: true})
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error.message)
@@ -76,6 +90,10 @@ const Login = () => {
                         }
                     </div>
                 </form>
+
+                <Link className='text-center'>
+                    <button onClick={handleGoogleSIgnIn} className="btn btn-info w-full mt-10"><FaGoogle className='mr-2'></FaGoogle> Google SignIn</button>
+                </Link>
 
                 <p>New to Doctors Portal <Link className='text-secondary' to='/signup'>Create New Account</Link></p>
                 <div className="divider">OR</div>
