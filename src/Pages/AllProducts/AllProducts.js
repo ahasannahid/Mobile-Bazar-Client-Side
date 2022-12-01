@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import Loader from '../../Shared/Loader/Loader';
 import Product from '../../Shared/Products/Product';
 
 const AllProducts = () => {
@@ -14,7 +15,7 @@ const AllProducts = () => {
     });
 
     if(isLoading){
-        return <p>Loading....</p>;
+        return <Loader></Loader>
     }
     return (
         <div>

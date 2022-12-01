@@ -67,7 +67,7 @@ const AddProducts = () => {
         setLoading(<Loader></Loader>);
     }
     return (
-        <div className='w-96 p-7'>
+        <div className='w-96 p-7 mx-auto'>
             <h2 className="text-4xl">Add A Product</h2>
 
             <form onSubmit={handleSubmit(handleAddProduct)}>
