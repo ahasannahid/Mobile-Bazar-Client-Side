@@ -8,6 +8,7 @@ import CategoryProducts from "../../Pages/AllProducts/CategoryProducts";
 import MyOrders from "../../Pages/MyOrders/MyOrders";
 import AllSeller from "../../Pages/AllSeller/AllSeller";
 import AllBuyer from "../../Pages/AllBuyer/AllBuyer";
+import Blog from "../../components/Blog/Blog";
 
 
 
@@ -54,7 +55,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/blog',
-                element: <SignUp></SignUp>
+                element: <Blog></Blog>
             },
             {
                 path: '/category/:name',
