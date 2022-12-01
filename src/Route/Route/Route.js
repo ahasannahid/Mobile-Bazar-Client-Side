@@ -11,6 +11,8 @@ import AllBuyer from "../../Pages/AllBuyer/AllBuyer";
 import Blog from "../../components/Blog/Blog";
 import AddProducts from "../../Pages/AddProducts/AddProducts";
 import MyProducts from "../../Pages/Myproducts/MyProducts";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import AdminRoute from "../AdminRoute/AdminRoute";
 
 
 
@@ -37,7 +39,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myorders',
-                element: <MyOrders></MyOrders>
+                element: <PrivateRoute><MyOrders></MyOrders></PrivateRoute>
             },
             {
                 path: '/myproducts',
@@ -49,11 +51,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/allseller',
-                element: <AllSeller></AllSeller>
+                element: <AdminRoute><AllSeller></AllSeller></AdminRoute>
             },
             {
                 path: '/allbuyer',
-                element: <AllBuyer></AllBuyer>
+                element: <AdminRoute><AllBuyer></AllBuyer></AdminRoute>
             },
             {
                 path: '/blog',
