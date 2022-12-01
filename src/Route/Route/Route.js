@@ -6,6 +6,7 @@ import Login from "../../Pages/LogIn/Login";
 import AllProducts from "../../Pages/AllProducts/AllProducts";
 import CategoryProducts from "../../Pages/AllProducts/CategoryProducts";
 import MyOrders from "../../Pages/MyOrders/MyOrders";
+import AllSeller from "../../Pages/AllSeller/AllSeller";
 
 
 
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/allseller',
-                element: <SignUp></SignUp>
+                element: <AllSeller></AllSeller>
             },
             {
                 path: '/allbuyer',
