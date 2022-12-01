@@ -10,6 +10,7 @@ import AllSeller from "../../Pages/AllSeller/AllSeller";
 import AllBuyer from "../../Pages/AllBuyer/AllBuyer";
 import Blog from "../../components/Blog/Blog";
 import AddProducts from "../../Pages/AddProducts/AddProducts";
+import MyProducts from "../../Pages/Myproducts/MyProducts";
 
 
 
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myproducts',
-                element: <SignUp></SignUp>
+                element: <MyProducts></MyProducts>
             },
             {
                 path: '/addproducts',

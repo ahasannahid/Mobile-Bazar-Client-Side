@@ -1,16 +1,18 @@
-import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 import Loader from '../../Shared/Loader/Loader';
 
 
 const AddProducts = () => {
+    const {user} = useContext(AuthContext);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [loading, setLoading] = useState(false);
 
-    const imageHostKey = '788c5ee298fe3a075bdcb0784c8ed0fd';
+    // const imageHostKey = '788c5ee298fe3a075bdcb0784c8ed0fd';
+    const imageHostKey = process.env.REACT_APP_imgbb_key;
     console.log(imageHostKey);
 
     const navigate = useNavigate();
@@ -21,6 +23,7 @@ const AddProducts = () => {
         const formData = new FormData();
         formData.append('image', image);
         // const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`
+
         const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`
         fetch(url, {
             method: 'POST',
@@ -40,7 +43,8 @@ const AddProducts = () => {
                     category: data.category,
                     location: data.location,
                     description: data.description,
-                    purchase_year: data.year
+                    purchase_year: data.year,
+                    email: data.email,
                 }
                 // save doctor information to the database
                 fetch('http://localhost:5000/products', {
@@ -83,6 +87,16 @@ const AddProducts = () => {
                         <span className="label-text">Price</span>
                     </label>
                     <input type="text" {...register("price", {
+                        required: 'Email Address is required'
+                    })} className="input input-bordered w-full max-w-xs" />
+                    {errors.email && <p className='text-red-600' role="alert">{errors.email?.message}</p>}
+                </div>
+
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Email</span>
+                    </label>
+                    <input type="email" defaultValue={user.email} readOnly {...register("email", {
                         required: 'Email Address is required'
                     })} className="input input-bordered w-full max-w-xs" />
                     {errors.email && <p className='text-red-600' role="alert">{errors.email?.message}</p>}
