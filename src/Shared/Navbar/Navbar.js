@@ -23,24 +23,10 @@ const Navbar = () => {
     const menuItems = <React.Fragment>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/products">Products</Link></li>
-        {
-            user?.uid && <li><Link to="/myorders">My Orders</Link></li>
-        }
+        <li><Link to="/dashboard">DashBoard</Link></li>
         <li><Link to="/blog">Blog</Link></li>
 
-        {
-            isSeller && <>
-                <li><Link to="/myproducts">My Products</Link></li>
-                <li><Link to="/addproducts">Add Products</Link></li>
-            </>
-        }
-
-        {
-            isAdmin && <>
-                <li><Link to="/allseller">All Seller</Link></li>
-                <li><Link to="/allbuyer">All Buyer</Link></li>
-            </>
-        }
+        
 
         {user?.uid ?
             <>
