@@ -7,7 +7,7 @@
     
 </head>
 <body>
-<h1>Project Name:<a href="https://mobile-bazar-68214.web.app/dashboard">Mobile Bazar</a> </h1>
+<h1>Project Name:<a href="https://mobile-bazar-68214.web.app/">Mobile Bazar</a> </h1>
 <h3>Feature</h3>
 <ul>
     <li>Firebase Authentication</li>
